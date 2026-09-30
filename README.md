@@ -31,7 +31,9 @@ The Port Scanner is a Python-based security auditing tool that scans a target IP
 # 📂 Project Structure
 - Code
 port-scanner/
+
 │── port_scanner.py   # Main script
+
 │── README.md         # Documentation
 
 # 🔮 Future Enhancements
