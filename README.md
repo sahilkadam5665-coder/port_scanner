@@ -1,4 +1,4 @@
-# 🔍 Advanced Port Scanner
+# 🔍 Port Scanner
 # 📖 Overview
 The Advanced Port Scanner is a Python-based security auditing tool that scans a target IP or domain for open ports, identifies services, grabs banners, and visualizes results in real time. It supports both connect scans and stealth SYN scans, and now includes critical port alerts, protocol filtering, and service fingerprinting for deeper analysis.
 
@@ -31,19 +31,19 @@ bash:
 # 🚀 Usage
 - Basic connect scan
 bash:
-# python advanced_port_scanner.py --ip example.com
+# python port_scanner.py --ip example.com
 
 - Stealth SYN scan
  bash:
-# sudo python advanced_port_scanner.py --ip example.com --mode stealth
+# sudo python port_scanner.py --ip example.com --mode stealth
 
 - Save results to JSON
 bash:
-# python advanced_port_scanner.py --ip example.com --output json
+# python port_scanner.py --ip example.com --output json
 
 - Enable dashboard visualization
 bash:
-# python advanced_port_scanner.py --ip example.com --dashboard
+# python port_scanner.py --ip example.com --dashboard
 
 - Open your browser at:
 Code:
