@@ -1,47 +1,72 @@
-# Port Scanner Tool
+# 🔍 Advanced Port Scanner
 # 📖 Overview
-The Port Scanner is a Python-based security auditing tool that scans a target IP address for open ports and attempts to identify the services running on those ports. It demonstrates the first step in any penetration test or security audit: discovering potential entry points into a system.
+The Advanced Port Scanner is a Python-based security auditing tool that scans a target IP or domain for open ports, identifies services, grabs banners, and visualizes results in real time. It supports both connect scans and stealth SYN scans, and now includes critical port alerts, protocol filtering, and service fingerprinting for deeper analysis.
 
 # ✨ Features
-- Scan a custom range of ports (default: 1–1024).
-- Detect common services (e.g., HTTP, FTP, SSH).
-- Lightweight and easy to run using Python’s built-in socket library.
-- Extensible design for adding multithreading, Scapy-based SYN scans, or dashboards.
+- Multithreaded Scanning: Fast scanning across large port ranges.
+- Dual Scan Modes:
+      -Connect Scan (full TCP handshake).
+      -Stealth SYN Scan (half-open, harder to detect).
+- Service Detection: Identifies common services (HTTP, FTP, SSH, etc.).
+- Banner Grabbing & Fingerprinting: Reads service banners to fingerprint applications.
+- Critical Port Alerts: Flags sensitive ports like SSH (22), RDP (3389), SMB (445), SQL (1433), MySQL (3306).
+- Advanced Protocol Filtering: Focus scans on specific protocols (HTTP, DNS, ICMP).
+- Logging: Export results to CSV or JSON.
+- Flask Dashboard: Real-time web interface with tables and charts (Chart.js).
 
 # 🛠️ Tech Stack
 - Language: Python 3
-- Libraries: socket, argparse
+- Libraries: socket, argparse, csv, json, flask, scapy, concurrent.futures
 
 # ⚙️ Installation
--Clone the repository and navigate into the project folder:
- bash:
- # git clone https://github.com/your-username/port-scanner.git
- cd port-scanner
+- Clone the repository and navigate into the project folder:
+bash:
+# git clone https://github.com/your-username/advanced-port-scanner.git
+cd advanced-port-scanner
+
+-Install dependencies:
+bash:
+# pip install scapy flask
 
 # 🚀 Usage
-- Run the tool from the command line:
-- Scan common ports
-  bash:
-  # python port_scanner.py --ip 192.168.1.1
+- Basic connect scan
+bash:
+# python advanced_port_scanner.py --ip example.com
 
-- Scan a custom range
-  bash:
-  # python port_scanner.py --ip 192.168.1.1 --start-port 20 --end-port 100
+- Stealth SYN scan
+ bash:
+# sudo python advanced_port_scanner.py --ip example.com --mode stealth
+
+- Save results to JSON
+bash:
+# python advanced_port_scanner.py --ip example.com --output json
+
+- Enable dashboard visualization
+bash:
+# python advanced_port_scanner.py --ip example.com --dashboard
+
+- Open your browser at:
+Code:
+# http://localhost:5000
 
 # 📂 Project Structure
 - Code
-port-scanner/
+advanced-port-scanner/
 
-│── port_scanner.py   # Main script
+│── advanced_port_scanner.py   # Main script
 
-│── README.md         # Documentation
+│── README.md                  # Documentation
+
+│── scan_results.csv           # Example CSV output
+
+│── scan_results.json          # Example JSON output
 
 # 🔮 Future Enhancements
-- Multithreaded scanning for speed.
-- Scapy integration for stealth SYN scans.
-- Export results to CSV/JSON.
-- Flask dashboard for visualization.
+- Integrate with SQLite for persistent storage.
+- Advanced filtering for application-layer protocols (HTTP headers, DNS queries).
+- More detailed service fingerprinting using known banner signatures.
+- Dashboard upgrades with traffic graphs and pie charts.
 
 # ⚠️ Disclaimer
-- This tool is for educational and security research purposes only.
-- Do not use it against systems without explicit permission. Unauthorized scanning may be illegal.
+This tool is for educational and security research purposes only.
+Do not use it against systems or networks without explicit permission. Unauthorized scanning may be illegal.
